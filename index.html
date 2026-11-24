@@ -660,6 +660,16 @@
         @media (prefers-reduced-motion: reduce) {
             .fx, .fx .fx-w, .fx-cal .cal-grid > * { opacity: 1 !important; transform: none !important; filter: none !important; clip-path: none !important; transition: none !important; }
         }
+
+        .fotos-lugar { margin-top: 3rem; padding-bottom: .5rem; }
+        .events-section .polaroid { box-shadow: 0 16px 34px rgba(25, 12, 8, .45); }
+
+        /* Más aire entre la información y las fotos */
+        .fotos-par, .fotos-lugar, .fotos-detalles { margin-top: clamp(4.5rem, 12vw, 6.5rem) !important; margin-bottom: 1.5rem !important; position: relative; }
+        .fotos-par::before { content: ""; position: absolute; top: calc(clamp(4.5rem, 12vw, 6.5rem) / -2); left: 50%; width: 120px; height: 1px;
+            transform: translateX(-50%); background: linear-gradient(90deg, transparent, #C99382, transparent); }
+        .events-section .fotos-par::before { background: linear-gradient(90deg, transparent, rgba(235, 201, 184, .7), transparent); }
+        .fotos-par { gap: 2.8rem !important; }
     </style>
 </head>
 <body>
@@ -765,8 +775,8 @@
             <blockquote class="vs-texto">«Mejores son dos que uno; porque tienen mejor paga de su trabajo. Porque si cayeren, el uno levantará a su compañero.»</blockquote>
             <p class="vs-cita">Eclesiastés 4:9-12</p>
             <div class="fotos-par">
-                <figure class="polaroid pol-izq fx-pol"><img src="foto1.jpg?v=1" alt="Baez y Williette" loading="lazy"></figure>
-                <figure class="polaroid pol-der fx-pol"><img src="foto2.jpg?v=1" alt="Baez y Williette" loading="lazy"></figure>
+                <figure class="polaroid pol-izq fx-pol"><img src="foto5.jpg?v=1" alt="Baez y Williette" loading="lazy"></figure>
+                <figure class="polaroid pol-der fx-pol"><img src="foto6.jpg?v=1" alt="Baez y Williette" loading="lazy"></figure>
             </div>
         </div>
 
@@ -789,6 +799,10 @@
                     <p class="lugar-nota">Por favor ser puntual</p>
                     <button class="btn-wedding" onclick="openLocation('ceremony')">¿Cómo llegar?</button>
                 </article>
+            </div>
+            <div class="fotos-par fotos-lugar">
+                <figure class="polaroid pol-izq fx-pol"><img src="foto1.jpg?v=1" alt="Baez y Williette" loading="lazy"></figure>
+                <figure class="polaroid pol-der fx-pol"><img src="foto2.jpg?v=1" alt="Baez y Williette" loading="lazy"></figure>
             </div>
         </section>
 
