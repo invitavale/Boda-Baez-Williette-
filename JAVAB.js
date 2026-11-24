@@ -123,7 +123,7 @@ function setupMusic() {
 // subiendo suavemente y enfocándose.
 function setupScrollReveal() {
     if (!('IntersectionObserver' in window)) return;
-    const items = document.querySelectorAll('.content section > *:not(.section-divider), .content .countdown-section > *, .content .bienvenida-section > *, .content .footer-verso, .content .footer-content');
+    const items = document.querySelectorAll('.content section > *:not(.section-divider):not(.flores-fondo), .content .countdown-section > *, .content .bienvenida-section > *, .content .footer-verso, .content .footer-content');
     const io = new IntersectionObserver(function(entries) {
         entries.forEach(function(entry) {
             if (entry.isIntersecting) {
@@ -171,7 +171,7 @@ document.addEventListener('DOMContentLoaded', function() {
     setupIntroEnvelope();
 
     setupMusic();
-    setupScrollReveal();
+    // setupScrollReveal(); // reemplazado por los efectos FX de abajo
 });
 
 
@@ -376,7 +376,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // álbum de fotos compartido, formulario de RSVP, etc.).
 function openLocation(location) {
     const urls = {
-        ceremony: 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent('Celebration Hall, La Rambla, César Nicolás Penson 157, La Esperilla, Santo Domingo'),
+        ceremony: 'https://maps.app.goo.gl/3L3FNTQn1HAuuZh17',
         reception: 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent('Av. Independencia 350, Gazcue, Santo Domingo')
     };
     const url = urls[location];
@@ -386,7 +386,7 @@ function openLocation(location) {
 }
 
 // Álbum compartido de Google Fotos (antes: https://photos.app.goo.gl/p9PGQHWrvLG1Bpj28)
-const PHOTO_ALBUM_URL = 'https://photos.app.goo.gl/fey51JWfjgCk88r79';
+const PHOTO_ALBUM_URL = 'https://photos.app.goo.gl/khxypNzkXPDcPSWj7';
 
 function sharePhotos() {
     // Abre el álbum compartido de Google Fotos en una pestaña nueva
@@ -520,4 +520,110 @@ function initializeGuestGreeting() {
   } else {
     clearCaches();
   }
+})();
+
+// Confirmación por WhatsApp: agrega los nombres del enlace personalizado al mensaje
+(function () {
+    var btn = document.getElementById('rsvpBtn');
+    if (!btn) return;
+    var p = new URLSearchParams(window.location.search);
+    var quien = p.get('invitados') || (p.get('familia') ? 'Familia ' + p.get('familia') : '');
+    var msg = 'Confirmo mi asistencia a la boda de Baez & Williette el martes 15 de diciembre de 2026.' +
+        (quien ? ' De parte de: ' + quien.split(',').map(function (s) { return s.trim(); }).filter(Boolean).join(', ') + '.' : '') +
+        ' ¡Gracias por la invitación!';
+    btn.href = 'https://wa.me/18495903188?text=' + encodeURIComponent(msg);
+})();
+
+// Efectos de scroll: barra de progreso, polaroids que caen, tarjetas en 3D y paralaje suave
+(function () {
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var bar = document.getElementById('scrollBar');
+    var fx = document.querySelectorAll('.fx-pol, .fx-card');
+    if (reduce || !('IntersectionObserver' in window)) {
+        fx.forEach(function (el) { el.classList.add('fx-in'); });
+    } else {
+        var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) {
+                if (!e.isIntersecting) return;
+                var el = e.target;
+                var sib = el.parentNode ? Array.prototype.indexOf.call(el.parentNode.children, el) : 0;
+                el.style.transitionDelay = (Math.min(sib, 3) * 0.15) + 's';
+                el.classList.add('fx-in');
+                if (el.classList.contains('fx-pol')) setTimeout(function () { el.style.transitionDelay = '0s'; el.classList.add('fx-done'); }, 2200);
+                io.unobserve(el);
+            });
+        }, { threshold: 0.18, rootMargin: '0px 0px -6% 0px' });
+        fx.forEach(function (el) { io.observe(el); });
+    }
+    var pols = document.querySelectorAll('.fx-pol');
+    var ticking = false;
+    function frame() {
+        ticking = false;
+        var doc = document.documentElement;
+        var max = doc.scrollHeight - window.innerHeight;
+        if (bar) bar.style.transform = 'scaleX(' + (max > 0 ? Math.min(1, window.scrollY / max) : 0) + ')';
+        if (reduce) return;
+        var vh = window.innerHeight;
+        pols.forEach(function (el) {
+            if (!el.classList.contains('fx-done')) return;
+            var r = el.getBoundingClientRect();
+            var c = (r.top + r.height / 2 - vh / 2) / vh;   // -1..1 aprox.
+            el.style.setProperty('--par', (c * -22).toFixed(1) + 'px');
+        });
+    }
+    window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(frame); } }, { passive: true });
+    window.addEventListener('resize', frame);
+    frame();
+})();
+
+// ===== Efectos de scroll en toda la invitación =====
+(function () {
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var groups = [
+        ['fx-title', '.content .section-title, .vs-kicker, .lugar-titulo, .party-card h3, .fe-fecha, .footer-content h3, .cal-kicker'],
+        ['fx-up', '.content .section-subtitle, .fe-dia, .fe-hora, .lugar-fecha, .lugar-fila, .lugar-dir, .lugar-nota, .party-card p, .vs-cita, .fv-cita, .footer-content p, .dress-swatches, .lugar-foto, .guest-section'],
+        ['fx-zoom', '.party-icon, .dress-ilus, .whatsapp-icon, .footer-anillos, .countdown-section .faltan-titulo'],
+        ['fx-pop', '.content .btn-wedding'],
+        ['fx-flip', '.countdown-item'],
+        ['fx-cal', '.calendario'],
+        ['fx-words', '.vs-texto, .fv-texto']
+    ];
+    var els = [];
+    groups.forEach(function (g) {
+        document.querySelectorAll(g[1]).forEach(function (el) {
+            if (el.closest('.hero-section') || el.classList.contains('fx')) return;
+            if (g[0] === 'fx-words') {
+                var words = el.textContent.trim().split(/\s+/);
+                el.textContent = '';
+                words.forEach(function (w, i) {
+                    var s = document.createElement('span');
+                    s.className = 'fx-w'; s.textContent = w;
+                    s.style.transitionDelay = (0.15 + i * 0.06).toFixed(2) + 's';
+                    el.appendChild(s); el.appendChild(document.createTextNode(' '));
+                });
+            }
+            el.classList.add('fx', g[0]);
+            var same = el.parentNode ? Array.prototype.filter.call(el.parentNode.children, function (c) { return c.classList.contains(g[0]); }) : [];
+            var idx = Math.max(0, same.indexOf(el));
+            el.style.setProperty('--fx-d', (Math.min(idx, 6) * 0.12).toFixed(2) + 's');
+            els.push(el);
+        });
+    });
+    function done(el) {
+        setTimeout(function () {
+            el.classList.add('fx-done');
+            el.style.removeProperty('--fx-d');
+        }, 2600);
+    }
+    if (reduce || !('IntersectionObserver' in window)) {
+        els.forEach(function (el) { el.classList.add('fx-in', 'fx-done'); });
+        return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+            if (!e.isIntersecting) return;
+            e.target.classList.add('fx-in'); done(e.target); io.unobserve(e.target);
+        });
+    }, { threshold: 0.2, rootMargin: '0px 0px -6% 0px' });
+    els.forEach(function (el) { io.observe(el); });
 })();

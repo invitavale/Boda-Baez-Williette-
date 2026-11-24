@@ -4,21 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Baez & Williette - Invitación de Boda</title>
-    <meta name="description" content="Te invitamos a celebrar nuestra boda el martes 15 de diciembre de 2026.">
+    <meta name="description" content="Nothing fancy, just love. Te esperamos el martes 15 de diciembre de 2026 a las 4:00 PM en Celebration Hall, Santo Domingo.">
 
     <!-- Vista previa al compartir el enlace (WhatsApp, Facebook, etc.) -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://invitavale.com/Boda-Rub--8/">
-    <meta property="og:title" content="Baez & Williette · Nothing fancy, just love">
-    <meta property="og:description" content="Martes 15 de diciembre de 2026 · 4:00 PM · Celebration Hall 💍">
-    <meta property="og:image" content="https://invitavale.com/Boda-Rub--8/og-portada.jpg?v=3">
-    <meta property="og:image:secure_url" content="https://invitavale.com/Boda-Rub--8/og-portada.jpg?v=3">
+    <meta property="og:url" content="https://invitavale.com/Boda-Baez-Williette-/">
+    <meta property="og:title" content="Baez & Williette · ¡Nos casamos! 💍">
+    <meta property="og:description" content="Nothing fancy, just love. Te esperamos el martes 15 de diciembre de 2026 a las 4:00 PM en Celebration Hall, Santo Domingo. Toca para ver tu invitación.">
+    <meta property="og:image" content="https://invitavale.com/Boda-Baez-Williette-/og-portada.jpg?v=4">
+    <meta property="og:image:secure_url" content="https://invitavale.com/Boda-Baez-Williette-/og-portada.jpg?v=4">
     <meta property="og:image:type" content="image/jpeg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:locale" content="es_DO">
+    <meta property="og:site_name" content="Invitavale">
+    <meta property="og:image:alt" content="Baez & Williette · Martes 15 de diciembre de 2026">
+    <meta name="twitter:title" content="Baez & Williette · ¡Nos casamos! 💍">
+    <meta name="twitter:description" content="Martes 15 de diciembre de 2026 · 4:00 PM · Celebration Hall, Santo Domingo">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content="https://invitavale.com/Boda-Rub--8/og-portada.jpg?v=3">
+    <meta name="twitter:image" content="https://invitavale.com/Boda-Baez-Williette-/og-portada.jpg?v=4">
     <link rel="preload" as="image" href="foto0.jpg?v=3">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -215,7 +219,7 @@
         .intro-overlay {
             position: fixed; inset: 0; z-index: 10050;
             display: flex; align-items: center; justify-content: center;
-            background: #F1E3D8 url('intro-sobre-poster.jpg?v=4') center/cover no-repeat;
+            background: #F1E3D8 url('intro-sobre-poster.jpg?v=5') center/cover no-repeat;
             cursor: pointer; overflow: hidden;
             -webkit-tap-highlight-color: transparent;
             transition: opacity 1.1s ease, visibility 1.1s ease;
@@ -482,14 +486,188 @@
             display: flex; align-items: center; justify-content: center; transition: opacity .4s ease; }
         .intro-seal span { font-family: 'Great Vibes', cursive; color: #F7E3D8; font-size: min(8.5vmin, 60px); text-shadow: 0 1px 2px rgba(0,0,0,.35); }
         .intro-overlay.is-playing .intro-seal { opacity: 0; }
+
+        /* ===== Ronda 2 ===== */
+        /* Intro: sin sombra a los lados */
+        .intro-overlay::before { filter: blur(28px) !important; opacity: .9; }
+        /* Portada más legible */
+        .hero-names::before { height: 400px !important;
+            background: linear-gradient(180deg, rgba(40,22,16,.78) 0%, rgba(40,22,16,.55) 55%, rgba(40,22,16,0) 100%) !important; }
+        .hero-names { text-shadow: 0 2px 4px rgba(30,15,10,.85), 0 4px 18px rgba(30,15,10,.6) !important; }
+        .hn-kicker { color: #FBE6DB !important; font-weight: 600; letter-spacing: .32em !important; font-size: clamp(.95rem, 3vw, 1.15rem) !important; }
+        .hn-just { color: #FFF3EC !important; }
+        .hn-names { color: #FFFFFF !important; }
+        .hn-amp { color: #F3C3AE !important; }
+        .hn-phrase { color: #FFFFFF !important; font-size: clamp(1.1rem, 4vw, 1.35rem) !important; }
+        .hn-phrase small { color: #F6D2C2 !important; }
+        /* Títulos en secciones oscuras: nítidos, sin halo */
+        .party-section .section-title, .rsvp-section .section-title,
+        .party-section .section-subtitle, .rsvp-section .section-subtitle,
+        .countdown-section .section-title, .countdown-number, .countdown-label {
+            text-shadow: 0 2px 6px rgba(30, 15, 10, .55) !important; filter: none !important;
+        }
+        .party-section .section-title, .rsvp-section .section-title { color: #FCEFE7 !important; }
+        .party-section .section-subtitle, .rsvp-section .section-subtitle { color: #F3DED3 !important; opacity: 1 !important; }
+        /* Ramos: versión en línea crema, completos y más visibles */
+        .events-section::before, .party-section::before, .content > section.party-section::before, .rsvp-section::before { background-image: none !important; }
+        .countdown-section, .events-section, .party-section, .rsvp-section { position: relative; isolation: isolate; overflow: hidden; }
+        .flores-fondo {
+            position: absolute; inset: 0; z-index: -1; pointer-events: none; opacity: .62;
+            background-repeat: no-repeat;
+            background-image: url("iconos/ramos/tl.webp"), url("iconos/ramos/tr.webp"), url("iconos/ramos/bl.webp"), url("iconos/ramos/br.webp");
+            background-size: 230px auto, 170px auto, 220px auto, 210px auto;
+            background-position: left -20px top 10px, right -10px top 10px, left -20px bottom 10px, right -15px bottom 10px;
+        }
+        .party-section .flores-fondo, .countdown-section .flores-fondo {
+            background-image: url("iconos/ramos/tl.webp"), url("iconos/ramos/tr.webp"), url("iconos/ramos/ml.webp"), url("iconos/ramos/mr.webp"), url("iconos/ramos/bl.webp"), url("iconos/ramos/br.webp");
+            background-size: 230px auto, 170px auto, 200px auto, 200px auto, 220px auto, 210px auto;
+            background-position: left -20px top 10px, right -10px top 10px, left -40px top 45%, right -40px top 55%, left -20px bottom 10px, right -15px bottom 10px;
+        }
+        @media (max-width: 768px) {
+            .flores-fondo, .party-section .flores-fondo, .countdown-section .flores-fondo { opacity: .6; }
+            .flores-fondo { background-size: 150px auto, 115px auto, 145px auto, 140px auto; background-position: left -18px top 6px, right -10px top 6px, left -18px bottom 6px, right -12px bottom 6px; }
+            .party-section .flores-fondo, .countdown-section .flores-fondo {
+                background-size: 150px auto, 115px auto, 130px auto, 130px auto, 145px auto, 140px auto;
+                background-position: left -18px top 6px, right -10px top 6px, left -45px top 42%, right -45px top 58%, left -18px bottom 6px, right -12px bottom 6px; }
+        }
+        /* Foto del lugar */
+        .lugar-foto { display: block; width: 100%; height: auto; border-radius: 10px; margin: 1rem 0 1.3rem;
+            box-shadow: 0 10px 24px rgba(70, 40, 30, .25); }
+        /* Fotos tipo polaroid entre secciones */
+        .fotos-entre {
+            position: relative; padding: 3.2rem 1.4rem 3.4rem; display: flex; flex-direction: column; align-items: center; gap: 2.4rem;
+            background: #F4ECE6 url("iconos/fondo-floral-movil.webp") center / 100% 100% no-repeat;
+        }
+        .fotos-entre::before { content: ""; position: absolute; inset: 0; background: rgba(247, 240, 235, .82); }
+        .polaroid { position: relative; margin: 0; width: min(86%, 400px); background: #fff;
+            padding: 12px 12px 54px; box-shadow: 0 14px 30px rgba(70, 40, 30, .22), 0 2px 6px rgba(70, 40, 30, .12); }
+        .polaroid img { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 30%; }
+        .pol-izq { transform: rotate(-3deg); align-self: flex-start; margin-left: 4%; }
+        .pol-der { transform: rotate(2.5deg); align-self: flex-end; margin-right: 4%; }
+        .polaroid.reveal.is-visible.pol-izq { transform: rotate(-3deg); }
+        .polaroid.reveal.is-visible.pol-der { transform: rotate(2.5deg); }
+        @media (min-width: 769px) {
+            .fotos-entre { flex-direction: row; justify-content: center; gap: 3.5rem; padding: 4rem 2rem;
+                background-image: url("iconos/fondo-floral.webp"); background-size: cover; }
+            .polaroid { width: 340px; }
+            .pol-izq, .pol-der { align-self: center; margin: 0; }
+            .pol-der { margin-top: 3rem; }
+        }
+        .btn-whatsapp { display: inline-block; text-decoration: none; }
+
+        .content > section.sec-oscura {
+            background-color: #6E4334 !important;
+            background-image: radial-gradient(130% 80% at 50% 0%, rgba(164,98,62,.30) 0%, rgba(164,98,62,0) 60%),
+                radial-gradient(140% 90% at 50% 120%, rgba(36,20,13,.55) 0%, rgba(36,20,13,0) 70%) !important;
+            color: #F4E8DF;
+        }
+        .content > section.sec-oscura .section-title { color: #FCEFE7 !important; }
+        .content > section.sec-oscura .section-subtitle { color: #F3DED3 !important; }
+
+        /* Fotos dentro de secciones existentes */
+        .fotos-par { display: flex; flex-direction: column; align-items: center; gap: 2.2rem; margin: 2.6rem auto 0; max-width: 760px; }
+        .events-section .fotos-par { margin-top: 3rem; padding-bottom: .5rem; }
+        @media (min-width: 769px) { .fotos-par { flex-direction: row; justify-content: center; gap: 3rem; }
+            .fotos-par .pol-der { margin-top: 3rem; } }
+        .events-section .polaroid { box-shadow: 0 16px 34px rgba(25, 12, 8, .45); }
+        /* Flores en secciones marrones: más difuminadas */
+        .flores-fondo { filter: blur(1.8px); opacity: .42 !important; }
+        @media (max-width: 768px) { .flores-fondo { opacity: .4 !important; filter: blur(1.4px); } }
+
+        .fotos-detalles { margin: 2.2rem auto 2.8rem; }
+        .party-section .polaroid { box-shadow: 0 16px 34px rgba(25, 12, 8, .45); }
+
+        /* Detalles en crema (colores intercalados) */
+        .content > section.party-section.sec-clara { background-color: #F4E8DF !important; background-image: none !important; color: #4A2C23; }
+        .party-section.sec-clara::before, .party-section.sec-clara::after { display: none !important; }
+        .party-section.sec-clara .section-title { color: #6E4334 !important; text-shadow: none !important; }
+        .party-section.sec-clara .section-subtitle { color: #8A5E4E !important; text-shadow: none !important; }
+        .fotos-detalles { margin: 3rem auto .5rem !important; }
+        .party-section .polaroid { box-shadow: 0 14px 30px rgba(70, 40, 30, .22), 0 2px 6px rgba(70, 40, 30, .12) !important; }
+        /* Flores aún más difuminadas */
+        .flores-fondo { filter: blur(3px) !important; opacity: .3 !important; }
+
+        .content > section.party-section.sec-clara .section-title { color: #6E4334 !important; text-shadow: none !important; }
+        .content > section.party-section.sec-clara .section-subtitle { color: #8A5E4E !important; text-shadow: none !important; }
+
+        /* ===== Ícono de confirmación limpio ===== */
+        .rsvp-container .whatsapp-icon {
+            width: auto !important; height: auto !important; padding: 0 !important;
+            background: none !important; border: 0 !important; box-shadow: none !important; border-radius: 0 !important;
+        }
+        .rsvp-container .whatsapp-icon:hover { transform: none; box-shadow: none !important; }
+        .rsvp-sobre { display: block; width: 128px; height: auto;
+            filter: drop-shadow(0 10px 18px rgba(25, 12, 8, .45));
+            animation: sobre-flota 3.6s ease-in-out infinite; }
+        @keyframes sobre-flota { 0%,100% { transform: translateY(0) rotate(-2deg); } 50% { transform: translateY(-7px) rotate(2deg); } }
+
+        /* ===== Efecto al hacer scroll ===== */
+        .scroll-progreso { position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 10040; pointer-events: none; }
+        .scroll-progreso span { display: block; height: 100%; width: 100%; transform-origin: 0 50%; transform: scaleX(0);
+            background: linear-gradient(90deg, #B9785B, #EBC9B8, #B9785B); box-shadow: 0 0 10px rgba(235, 201, 184, .8); }
+
+        /* Polaroids: caen girando y la foto se revela como revelado de película */
+        .fx-pol { --rot: -3deg; --par: 0px; opacity: 0;
+            transform: translateY(90px) rotate(calc(var(--rot) * 4)) scale(.88);
+            transition: opacity 1s ease, transform 1.4s cubic-bezier(.16, 1, .3, 1); will-change: transform; }
+        .fx-pol.pol-der { --rot: 2.5deg; }
+        .fx-pol.fx-in { opacity: 1; transform: translateY(var(--par)) rotate(var(--rot)) scale(1); }
+        .fx-pol img { clip-path: inset(100% 0 0 0); filter: sepia(.6) brightness(1.25) blur(4px);
+            transition: clip-path 1.3s cubic-bezier(.65, 0, .35, 1) .35s, filter 1.8s ease .6s; }
+        .fx-pol.fx-in img { clip-path: inset(0 0 0 0); filter: none; }
+        .fx-pol.fx-in.fx-done { transition: transform .25s linear; }
+
+        /* Tarjetas: se levantan en 3D */
+        .fx-card { opacity: 0; transform: perspective(900px) rotateX(16deg) translateY(50px) scale(.96); transform-origin: 50% 100%;
+            transition: opacity .9s ease, transform 1.2s cubic-bezier(.16, 1, .3, 1); }
+        .fx-card.fx-in { opacity: 1; transform: none; }
+
+        @media (prefers-reduced-motion: reduce) {
+            .fx-pol, .fx-card, .fx-pol img { opacity: 1 !important; transform: none !important; clip-path: none !important; filter: none !important; transition: none !important; }
+            .rsvp-sobre { animation: none; }
+        }
+
+        /* ===== Efectos de scroll en toda la invitación ===== */
+        .fx { transition-delay: var(--fx-d, 0s); }
+        .fx-title { opacity: 0; transform: translateY(26px); letter-spacing: .14em; filter: blur(6px);
+            transition: opacity 1.1s ease, transform 1.2s cubic-bezier(.16,1,.3,1), letter-spacing 1.6s cubic-bezier(.16,1,.3,1), filter 1.1s ease;
+            transition-delay: var(--fx-d, 0s); }
+        .fx-title.fx-in { opacity: 1; transform: none; letter-spacing: normal; filter: none; }
+        .fx-up { opacity: 0; transform: translateY(34px); filter: blur(5px);
+            transition: opacity .9s ease, transform 1.1s cubic-bezier(.16,1,.3,1), filter .9s ease; transition-delay: calc(var(--fx-d, 0s) + .15s); }
+        .fx-up.fx-in { opacity: 1; transform: none; filter: none; }
+        .fx-zoom { opacity: 0; transform: scale(.55) rotate(-10deg); filter: blur(4px);
+            transition: opacity .8s ease, transform 1.2s cubic-bezier(.34,1.56,.64,1), filter .8s ease; transition-delay: var(--fx-d, 0s); }
+        .fx-zoom.fx-in { opacity: 1; transform: none; filter: none; }
+        .fx-pop { opacity: 0; transform: translateY(18px) scale(.85);
+            transition: opacity .7s ease, transform .9s cubic-bezier(.34,1.56,.64,1); transition-delay: calc(var(--fx-d, 0s) + .3s); }
+        .fx-pop.fx-in { opacity: 1; transform: none; }
+        .fx-flip { opacity: 0; transform: perspective(500px) rotateX(-90deg); transform-origin: 50% 0;
+            transition: opacity .6s ease, transform 1s cubic-bezier(.16,1,.3,1); transition-delay: var(--fx-d, 0s); }
+        .fx-flip.fx-in { opacity: 1; transform: none; }
+        .fx-cal { opacity: 0; transform: scale(.92); transition: opacity .9s ease, transform 1.1s cubic-bezier(.16,1,.3,1); }
+        .fx-cal.fx-in { opacity: 1; transform: none; }
+        .fx-cal .cal-grid > * { opacity: 0; transform: translateY(8px); transition: opacity .5s ease, transform .5s ease; }
+        .fx-cal.fx-in .cal-grid > * { opacity: 1; transform: none; }
+        .fx-cal.fx-in .cal-grid > :nth-child(1) { transition-delay: 0.268s; } .fx-cal.fx-in .cal-grid > :nth-child(2) { transition-delay: 0.286s; } .fx-cal.fx-in .cal-grid > :nth-child(3) { transition-delay: 0.304s; } .fx-cal.fx-in .cal-grid > :nth-child(4) { transition-delay: 0.322s; } .fx-cal.fx-in .cal-grid > :nth-child(5) { transition-delay: 0.340s; } .fx-cal.fx-in .cal-grid > :nth-child(6) { transition-delay: 0.358s; } .fx-cal.fx-in .cal-grid > :nth-child(7) { transition-delay: 0.376s; } .fx-cal.fx-in .cal-grid > :nth-child(8) { transition-delay: 0.394s; } .fx-cal.fx-in .cal-grid > :nth-child(9) { transition-delay: 0.412s; } .fx-cal.fx-in .cal-grid > :nth-child(10) { transition-delay: 0.430s; } .fx-cal.fx-in .cal-grid > :nth-child(11) { transition-delay: 0.448s; } .fx-cal.fx-in .cal-grid > :nth-child(12) { transition-delay: 0.466s; } .fx-cal.fx-in .cal-grid > :nth-child(13) { transition-delay: 0.484s; } .fx-cal.fx-in .cal-grid > :nth-child(14) { transition-delay: 0.502s; } .fx-cal.fx-in .cal-grid > :nth-child(15) { transition-delay: 0.520s; } .fx-cal.fx-in .cal-grid > :nth-child(16) { transition-delay: 0.538s; } .fx-cal.fx-in .cal-grid > :nth-child(17) { transition-delay: 0.556s; } .fx-cal.fx-in .cal-grid > :nth-child(18) { transition-delay: 0.574s; } .fx-cal.fx-in .cal-grid > :nth-child(19) { transition-delay: 0.592s; } .fx-cal.fx-in .cal-grid > :nth-child(20) { transition-delay: 0.610s; } .fx-cal.fx-in .cal-grid > :nth-child(21) { transition-delay: 0.628s; } .fx-cal.fx-in .cal-grid > :nth-child(22) { transition-delay: 0.646s; } .fx-cal.fx-in .cal-grid > :nth-child(23) { transition-delay: 0.664s; } .fx-cal.fx-in .cal-grid > :nth-child(24) { transition-delay: 0.682s; } .fx-cal.fx-in .cal-grid > :nth-child(25) { transition-delay: 0.700s; } .fx-cal.fx-in .cal-grid > :nth-child(26) { transition-delay: 0.718s; } .fx-cal.fx-in .cal-grid > :nth-child(27) { transition-delay: 0.736s; } .fx-cal.fx-in .cal-grid > :nth-child(28) { transition-delay: 0.754s; } .fx-cal.fx-in .cal-grid > :nth-child(29) { transition-delay: 0.772s; } .fx-cal.fx-in .cal-grid > :nth-child(30) { transition-delay: 0.790s; } .fx-cal.fx-in .cal-grid > :nth-child(31) { transition-delay: 0.808s; } .fx-cal.fx-in .cal-grid > :nth-child(32) { transition-delay: 0.826s; } .fx-cal.fx-in .cal-grid > :nth-child(33) { transition-delay: 0.844s; } .fx-cal.fx-in .cal-grid > :nth-child(34) { transition-delay: 0.862s; } .fx-cal.fx-in .cal-grid > :nth-child(35) { transition-delay: 0.880s; } .fx-cal.fx-in .cal-grid > :nth-child(36) { transition-delay: 0.898s; } .fx-cal.fx-in .cal-grid > :nth-child(37) { transition-delay: 0.916s; } .fx-cal.fx-in .cal-grid > :nth-child(38) { transition-delay: 0.934s; } .fx-cal.fx-in .cal-grid > :nth-child(39) { transition-delay: 0.952s; } .fx-cal.fx-in .cal-grid > :nth-child(40) { transition-delay: 0.970s; } .fx-cal.fx-in .cal-grid > :nth-child(41) { transition-delay: 0.988s; } .fx-cal.fx-in .cal-grid > :nth-child(42) { transition-delay: 1.006s; } .fx-cal.fx-in .cal-grid > :nth-child(43) { transition-delay: 1.024s; } .fx-cal.fx-in .cal-grid > :nth-child(44) { transition-delay: 1.042s; } .fx-cal.fx-in .cal-grid > :nth-child(45) { transition-delay: 1.060s; } .fx-cal.fx-in .cal-grid > :nth-child(46) { transition-delay: 1.078s; } .fx-cal.fx-in .cal-grid > :nth-child(47) { transition-delay: 1.096s; } .fx-cal.fx-in .cal-grid > :nth-child(48) { transition-delay: 1.114s; } .fx-cal.fx-in .cal-grid > :nth-child(49) { transition-delay: 1.132s; } 
+        .fx-words .fx-w { display: inline-block; opacity: 0; transform: translateY(14px); filter: blur(6px);
+            transition: opacity .7s ease, transform .9s cubic-bezier(.16,1,.3,1), filter .7s ease; }
+        .fx-words.fx-in .fx-w { opacity: 1; transform: none; filter: none; }
+        /* Cuando termina, se liberan los estilos para que funcionen los hover normales */
+        .fx.fx-done { transition-delay: 0s !important; }
+        .fx-pop.fx-done { transition: transform .3s ease, box-shadow .3s ease, background .3s ease; transform: none; }
+        .fx-pop.fx-done:hover { transform: translateY(-2px); }
+        @media (prefers-reduced-motion: reduce) {
+            .fx, .fx .fx-w, .fx-cal .cal-grid > * { opacity: 1 !important; transform: none !important; filter: none !important; clip-path: none !important; transition: none !important; }
+        }
     </style>
 </head>
 <body>
+    <div class="scroll-progreso" aria-hidden="true"><span id="scrollBar"></span></div>
     <!-- Intro: sobre animado (hay que tocar para abrir) -->
     <div id="introOverlay" class="intro-overlay" role="button" aria-label="Toca para abrir la invitación">
-        <video id="introVideo" class="intro-video" src="intro-sobre.mp4?v=4" poster="intro-sobre-poster.jpg?v=4" playsinline webkit-playsinline muted preload="auto"></video>
-        <img id="introAnim" class="intro-video intro-anim" data-src="intro-sobre.webp?v=4" alt="" hidden>
-        <div class="intro-seal" aria-hidden="true"><span>B&amp;W</span></div>
+        <video id="introVideo" class="intro-video" src="intro-sobre.mp4?v=5" poster="intro-sobre-poster.jpg?v=5" playsinline webkit-playsinline muted preload="auto"></video>
+        <img id="introAnim" class="intro-video intro-anim" data-src="intro-sobre.webp?v=5" alt="" hidden>
         <div class="intro-flash"></div>
         <div class="intro-hint">
             <span class="intro-tap"></span>
@@ -542,6 +720,7 @@
         <div class="section-divider pincel a-oscuro" aria-hidden="true"></div>
         <!-- Countdown + calendario (fondo chocolate) -->
         <div class="countdown-section tono-oscuro">
+            <div class="flores-fondo" aria-hidden="true"></div>
             <div id="guestSection" class="guest-section" style="display:none;">
                 <div id="guestBadge" class="guest-badge">0</div>
                 <h2 class="guest-title">¡Bienvenidos!</h2>
@@ -581,19 +760,25 @@
 
         <!-- Versículo -->
         <div class="section-divider pincel a-claro" aria-hidden="true"></div>
-        <section class="verso-section">
+        <div class="verso-section">
             <p class="vs-kicker">Unidos para siempre</p>
             <blockquote class="vs-texto">«Mejores son dos que uno; porque tienen mejor paga de su trabajo. Porque si cayeren, el uno levantará a su compañero.»</blockquote>
             <p class="vs-cita">Eclesiastés 4:9-12</p>
-        </section>
+            <div class="fotos-par">
+                <figure class="polaroid pol-izq fx-pol"><img src="foto1.jpg?v=1" alt="Baez y Williette" loading="lazy"></figure>
+                <figure class="polaroid pol-der fx-pol"><img src="foto2.jpg?v=1" alt="Baez y Williette" loading="lazy"></figure>
+            </div>
+        </div>
+
 
         <!-- Ceremonia y Recepción -->
         <div class="section-divider pincel a-oscuro" aria-hidden="true"></div>
-        <section class="events-section">
+        <section class="events-section sec-oscura">
+            <div class="flores-fondo" aria-hidden="true"></div>
             <div class="lugares-grid lugares-uno">
-                <article class="lugar-card">
+                <article class="lugar-card fx-card">
                     <h3 class="lugar-titulo">Ceremonia y Recepción</h3>
-                    <img class="lugar-ilus lugar-acuarela lugar-acuarela-ancha" src="iconos/insp/hotel-acuarela.webp" alt="Acuarela de Celebration Hall">
+                    <img class="lugar-ilus lugar-foto" src="lugar-rambla.jpg?v=1" alt="Acuarela de La Rambla Bistro Grill, Celebration Hall">
                     <p class="lugar-fecha">Martes 15 de diciembre, 2026</p>
                     <div class="lugar-fila">
                         <span class="lugar-hora">4:00 PM</span>
@@ -607,60 +792,16 @@
             </div>
         </section>
 
-        <!-- Itinerario (nuevo) — actividades de ejemplo, editar horas y textos aquí -->
-        <div class="section-divider pincel a-oscuro" aria-hidden="true"></div>
-        <section class="itinerario-section">
-            <h2 class="section-title">Itinerario</h2>
-            <p class="section-subtitle">Así viviremos juntos este día tan especial.</p>
-            <div class="timeline">
-                <div class="t-item">
-                    <div class="t-ico"><img src="iconos/insp/iglesia.webp" alt=""></div>
-                    <div class="t-linea"></div>
-                    <div class="t-tx"><b>4:00 PM</b><span>Ceremonia</span><small>Nuestra unión bajo la bendición de Dios.</small></div>
-                </div>
-                <span class="t-dot"></span>
-                <div class="t-item">
-                    <div class="t-tx"><b>5:00 PM</b><span>Recepción y bienvenida</span><small>Llegada y acomodo de los invitados.</small></div>
-                    <div class="t-linea"></div>
-                    <div class="t-ico"><img src="iconos/insp/salon.webp" alt=""></div>
-                </div>
-                <span class="t-dot"></span>
-                <div class="t-item">
-                    <div class="t-ico t-ico-flota"><img src="iconos/insp/mesa.webp" alt=""></div>
-                    <div class="t-linea"></div>
-                    <div class="t-tx"><b>6:00 PM</b><span>Cena</span><small>Compartir, cenar y celebrar juntos.</small></div>
-                </div>
-                <span class="t-dot"></span>
-                <div class="t-item">
-                    <div class="t-tx"><b>7:00 PM</b><span>Brindis de los novios</span><small>Celebramos juntos nuestro amor.</small></div>
-                    <div class="t-linea"></div>
-                    <div class="t-ico t-ico-mezcla"><img src="iconos/anim/brindis.webp?v=2" alt=""></div>
-                </div>
-                <span class="t-dot"></span>
-                <div class="t-item">
-                    <div class="t-ico"><img src="iconos/anim/ramo.webp" alt=""></div>
-                    <div class="t-linea"></div>
-                    <div class="t-tx"><b>7:30 PM</b><span>Lanzamiento del ramo</span><small>Buenos deseos para la próxima novia.</small></div>
-                </div>
-                <span class="t-dot"></span>
-                <div class="t-item">
-                    <div class="t-tx"><b>8:00 PM</b><span>¡Hora loca!</span><small>Música, baile y mucha diversión.</small></div>
-                    <div class="t-linea"></div>
-                    <div class="t-ico t-ico-lleno"><img src="iconos/anim/fiesta.webp" alt=""></div>
-                </div>
-                <span class="t-dot"></span>
-            </div>
-        </section>
 
         <!-- Party Information -->
         <div class="section-divider pincel a-claro" aria-hidden="true"></div>
-        <section class="party-section">
+        <section class="party-section sec-clara">
             <div class="party-container">
                 <h2 class="section-title">Detalles</h2>
                 <p class="section-subtitle">Hagamos juntos una fiesta épica. Aquí algunos detalles a tener en cuenta.</p>
 
                 <div class="party-grid">
-                    <div class="party-card">
+                    <div class="party-card fx-card">
                         <div class="dress-ilus dress-pareja">
                             <img src="iconos/anim/pareja.webp" alt="Pareja vestida de gala: traje y vestido largo">
                         </div>
@@ -670,7 +811,7 @@
                         <div class="dress-swatches" aria-hidden="true"><span class="sw-no" style="background:#FFFFFF"></span><span class="sw-no" style="background:#F3E6CF"></span></div>
                     </div>
 
-                    <div class="party-card">
+                    <div class="party-card fx-card">
                         <div class="party-icon modern-icon static-icon">
                             <img src="iconos/anim/camara.webp" alt="Cámara de fotos" class="theme-icon-img fotos-img insp-ico">
                         </div>
@@ -679,7 +820,7 @@
                         <button class="btn-wedding" onclick="sharePhotos()">Subir Fotos</button>
                     </div>
 
-                    <div class="party-card">
+                    <div class="party-card fx-card">
                         <div class="party-icon modern-icon">
                             <img src="iconos/insp/no-ninos.webp" alt="Solo adultos" class="theme-icon-img tips-img insp-ico anim-balanceo">
                         </div>
@@ -688,36 +829,26 @@
                         <p class="party-thanks">¡Gracias por su comprensión!</p>
                     </div>
                 </div>
+                <div class="fotos-par fotos-detalles">
+                <figure class="polaroid pol-izq fx-pol"><img src="foto3.jpg?v=1" alt="Baez y Williette" loading="lazy"></figure>
+                <figure class="polaroid pol-der fx-pol"><img src="foto4.jpg?v=1" alt="Baez y Williette" loading="lazy"></figure>
             </div>
-        </section>
-
-        <!-- Gifts -->
-        <div class="section-divider pincel a-oscuro" aria-hidden="true"></div>
-        <section class="gifts-section">
-            <div class="gifts-container">
-                <h2 class="section-title">Regalos</h2>
-                <p class="section-subtitle">Poder celebrar contigo es nuestro mejor regalo. Pero si deseas hacernos un obsequio, aquí tienes nuestra lista de regalos y nuestros datos bancarios.</p>
-                
-                <div class="gift-icon modern-icon">
-                    <span class="regalo-medallon"><img src="iconos/anim/regalo-circulo.webp?v=4" alt="Regalo"></span>
-                </div>
-
-                <button class="btn-wedding" type="button">Ver más</button>
             </div>
         </section>
 
         <!-- RSVP -->
-        <div class="section-divider pincel a-claro" aria-hidden="true"></div>
-        <section class="rsvp-section">
+        <div class="section-divider pincel a-oscuro" aria-hidden="true"></div>
+        <section class="rsvp-section sec-oscura">
+            <div class="flores-fondo" aria-hidden="true"></div>
             <div class="rsvp-container">
                 <h2 class="section-title">Confirma tu Asistencia</h2>
-                <p class="section-subtitle">Por favor confírmanos tu asistencia con anticipación</p>
+                <p class="section-subtitle">Por favor confírmanos tu asistencia con anticipación. Te llevará directo a WhatsApp.</p>
                 
                 <div class="whatsapp-icon modern-icon">
-                    <img src="iconos/anim/sobre.webp" alt="Confirmar asistencia" class="theme-icon-img rsvp-img insp-fijo">
+                    <img src="iconos/insp/confirmar.webp" alt="Confirmar asistencia" class="rsvp-sobre">
                 </div>
 
-                <button class="btn-wedding" type="button">Confirmar Asistencia</button>
+                <a id="rsvpBtn" class="btn-wedding btn-whatsapp" href="https://wa.me/18495903188?text=Confirmo%20mi%20asistencia%20a%20la%20boda%20de%20Baez%20%26%20Williette%20el%20martes%2015%20de%20diciembre%20de%202026.%20%C2%A1Gracias%20por%20la%20invitaci%C3%B3n!" target="_blank" rel="noopener">Confirmar por WhatsApp</a>
             </div>
         </section>
 
